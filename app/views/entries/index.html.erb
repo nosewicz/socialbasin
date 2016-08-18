@@ -1,0 +1,52 @@
+<h1>Entries</h1>
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-md-8">
+  <% @entries.each do |entry| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        
+        <img src="<%= entry.image %>" class="thumb">
+        <h4><%= link_to entry.title, entry.url %></h4>
+        <i> published <%= time_ago_in_words(entry.published) %> ago.</i><br>
+        <% if entry.feed.name == "BuzzFeed" %>
+        From: <%= image_tag("BuzzFeed_Logo.png", class: "source") %>
+        <% elsif entry.feed.name == "ThoughtCatalog" %>
+         From: <%= image_tag("thought-catalog-logo.png", class: "source") %>
+        <% elsif entry.feed.name == "The Chive" %>
+         From: <%= image_tag("theChivelogo.png", class: "source") %>
+        <% elsif entry.feed.name == "Upworthy" %>
+        from: <%= image_tag("upWorthy.png", class: "source") %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="col-xs-6 col-md-4">
+  <div class="latest">
+    <h3>Latest from <%= image_tag("BuzzFeed_Logo.png", class: "source") %></h3>
+    <% @buzzposts.each do |entry| %>
+    <%= link_to entry.title, entry.url %><br>
+    <% end %>
+  </div>
+    <div class="latest">
+    <h3>Latest from <%= image_tag("thought-catalog-logo.png", class: "source") %></h3>
+    <% @thoughts.each do |entry| %>
+    <%= link_to entry.title, entry.url %><br>
+    <% end %>
+  </div>
+    <div class="latest">
+    <h3>Latest from <%= image_tag("theChivelogo.png", class: "source") %></h3>
+    <% @chives.each do |entry| %>
+    <%= link_to entry.title, entry.url %><br>
+    <% end %>
+  </div>
+    <div class="latest">
+    <h3>Latest from <%= image_tag("upWorthy.png", class: "source") %></h3>
+    <% @ups.each do |entry| %>
+    <%= link_to entry.title, entry.url %><br>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
