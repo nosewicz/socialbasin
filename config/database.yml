@@ -7,10 +7,11 @@
 default: &default
   adapter: postgresql
   encoding: SQL_ASCII
-  host: localhost
+  host: ec2-50-17-212-238.compute-1.amazonaws.com
+
   pool: 5
-  username: josh
-  password: password
+  username: wlgtzjjmpmzcvt
+  password: bh3CUBgDSHhkwX7MgfPBOGwUIL
 
 development:
   <<: *default
@@ -22,4 +23,4 @@ test:
 
 production:
   <<: *default
-  database: app_production
+  database: ddsncj2e4lrk1c
