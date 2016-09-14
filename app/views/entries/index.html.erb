@@ -47,6 +47,12 @@
     <%= link_to entry.title, entry.url %><br>
     <% end %>
   </div>
+     <div class="latest">
+    <h3>Latest from SocailBasin</h3>
+    <% @posts.each do |post| %>
+    <%= link_to post.title, post.full_url %><br>
+    <% end %>
+    </div>
 </div>
 </div>
 </div>

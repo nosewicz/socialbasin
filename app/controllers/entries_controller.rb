@@ -8,6 +8,7 @@ class EntriesController < ApplicationController
    @thoughts = Entry.where(:feed_id => 2).order('published desc').limit(10)
    @chives = Entry.where(:feed_id => 3).order('published desc').limit(10)
    @ups = Entry.where(:feed_id => 4).order('published desc').limit(10)
+   @posts = Monologue::Post.published
   end
 
   def show

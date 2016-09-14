@@ -15,6 +15,9 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
+  username: josh
+  password: password
   database: socialbasin
 
 test:

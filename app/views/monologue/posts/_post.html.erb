@@ -1,0 +1,12 @@
+<section data-tags="<%= post.tags.map(&:name).join(' ') %>">
+  <%= render partial: 'monologue/posts/post_header', locals: {post: post} %>
+
+  <div class="content" data-monologue="content">
+    <%= truncate_html(post.content, length: Monologue::Config.preview_size, omission: '...') %>
+  </div>
+
+  <div class="tags" data-monologue="tags">
+    <%= render post.tags %>
+  </div>
+  <%= link_to t(".readmore"), post.full_url, class: "button" %>
+</section>

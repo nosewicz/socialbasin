@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <%= render 'layouts/monologue/application/head' %>
+</head>
+<body>
+  <div class="container">
+    <header class="main-header sixteen columns clearfix">
+      <%= rss_icon %>
+      <h1><a href="<%= root_path %>"><%=Monologue::Config.site_name%></a></h1>
+      <h2><%=Monologue::Config.site_subtitle%></h2>
+      <%= render partial: "layouts/monologue/application/social_icons" %>
+    </header>
+
+    <div class="content twelve columns">
+      <% flash.each do |name, msg| %>
+        <div class="flash-notice">
+          <%= msg %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+      <%= render 'layouts/monologue/application/sidebar' %>
+  </div>
+  <% if content_for?(:footer) %>
+    <footer>
+      <%= yield :footer %>
+    </footer>
+  <% end %>
+  <%= render 'layouts/monologue/application/disqus' %>
+  <%= render 'layouts/monologue/application/gauge_analytics' %>
+</body>
+</html>
