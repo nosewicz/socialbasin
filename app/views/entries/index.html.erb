@@ -47,12 +47,14 @@
     <%= link_to entry.title, entry.url %><br>
     <% end %>
   </div>
+    <% if @posts.present? %>
      <div class="latest">
-    <h3>Latest from SocailBasin</h3>
+    <h3>Latest from <%= image_tag("SocialBasin7.png", class: "source") %></h3>
     <% @posts.each do |post| %>
     <%= link_to post.title, post.full_url %><br>
     <% end %>
     </div>
+    <% end %>
 </div>
 </div>
 </div>
